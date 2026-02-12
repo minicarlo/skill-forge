@@ -1,0 +1,9 @@
+{"skillId":"time-tracker","executionMs":1200,"tokensIn":900,"tokensOut":200,"success":true,"timestamp":1730000001}
+{"skillId":"time-tracker","executionMs":1400,"tokensIn":950,"tokensOut":240,"success":true,"timestamp":1730000010}
+{"skillId":"time-tracker","executionMs":1600,"tokensIn":1000,"tokensOut":300,"success":false,"timestamp":1730000020}
+{"skillId":"weather","executionMs":800,"tokensIn":300,"tokensOut":120,"success":true,"timestamp":1730000030}
+{"skillId":"weather","executionMs":900,"tokensIn":350,"tokensOut":130,"success":true,"timestamp":1730000040}
+{"skillId":"weather","executionMs":1100,"tokensIn":420,"tokensOut":150,"success":true,"timestamp":1730000050}
+{"skillId":"github-helper","executionMs":4200,"tokensIn":1600,"tokensOut":700,"success":false,"timestamp":1730000060}
+{"skillId":"github-helper","executionMs":3900,"tokensIn":1550,"tokensOut":680,"success":true,"timestamp":1730000070}
+{"skillId":"github-helper","executionMs":4700,"tokensIn":1700,"tokensOut":760,"success":false,"timestamp":1730000080}

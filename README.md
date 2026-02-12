@@ -40,7 +40,7 @@ npm install
 npm run profile
 
 # 3. Run analyzer (finds slow skills)
-npm run analyze
+npm run analyze -- --input=./data/metrics.sample.jsonl
 
 # 4. Run optimizer (generates v2)
 npm run optimize --skill=time-tracker
@@ -48,6 +48,27 @@ npm run optimize --skill=time-tracker
 # 5. Run validator (A/B test)
 npm run validate --skill=time-tracker
 ```
+
+## Analyzer (Implemented in this PR)
+
+The analyzer now reads profiler JSONL and ranks optimization targets by a weighted score:
+
+- Latency impact (up to 45 points)
+- Token usage impact (up to 30 points)
+- Failure rate impact (up to 25 points)
+
+Example:
+
+```bash
+npm run build
+npm run analyze -- --input=./data/metrics.sample.jsonl
+```
+
+Optional flags:
+
+- `--min-samples=3`
+- `--max-candidates=10`
+- `--json` (machine-readable output)
 
 ## Team Tasks (Parallel Work)
 
