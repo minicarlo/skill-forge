@@ -516,6 +516,38 @@ body {
   text-align: center;
 }
 
+.control-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.control-center div {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.control-label {
+  font-size: 0.8rem;
+  color: #94a2c8;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.control-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.control-note {
+  font-size: 0.8rem;
+  color: #8b96c6;
+}
+
 .metric-card p {
   font-size: 0.85rem;
   color: #8b96c6;
