@@ -20,6 +20,7 @@
             <a href="#how-it-works">How It Works</a>
             <a href="https://github.com/minicarlo/skill-forge" target="_blank">GitHub</a>
         </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">Dark mode</button>
     </nav>
 
     <header class="hero">
@@ -51,6 +52,20 @@
                     <span>View on GitHub</span>
                 </a>
             </div>
+        </div>
+        <div class="feature-grid">
+            <article>
+                <h3>Adaptive automation</h3>
+                <p>Skill Forge tunes itself in five steps: profile, analyze, optimize, validate, deploy.</p>
+            </article>
+            <article>
+                <h3>LLM-powered rewrites</h3>
+                <p>Prompt templates distill performance data into precise rewrite requests.</p>
+            </article>
+            <article>
+                <h3>Confidence gating</h3>
+                <p>Only promote versions that pass validation and keep a full history for rollback.</p>
+            </article>
         </div>
         <div class="hero-visual">
             <div class="forge-animation">
@@ -250,5 +265,6 @@
             animateNumber(document.getElementById('time-reduced'), 28, '%');
         });
     </script>
+    <script src="theme.js"></script>
 </body>
 </html>

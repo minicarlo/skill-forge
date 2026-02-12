@@ -4,13 +4,35 @@
   padding: 0;
 }
 
+
+:root {
+  --bg: #05070f;
+  --fg: #f4f6fb;
+  --muted: #aab3d0;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --panel-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  --bg: #f5f6ff;
+  --fg: #0b1224;
+  --muted: #4a5572;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(15, 23, 42, 0.08);
+  --panel-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --toggle-bg: rgba(15, 23, 42, 0.08);
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: #05070f;
-  color: #f4f6fb;
+  background: var(--bg);
+  color: var(--fg);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .bg-animation {
@@ -588,4 +610,64 @@ body {
 
 .dashboard-footer p {
   color: #a1a7c1;
+}
+
+
+.theme-toggle {
+  border: 1px solid var(--border-color);
+  background: var(--toggle-bg);
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature-grid article {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  box-shadow: var(--panel-shadow);
+}
+
+.feature-grid h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.feature-grid p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.stats-bar,
+.step,
+.panel,
+.metric-card,
+.arch-box,
+.team-member,
+.console {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.stats-bar,
+.panel,
+.metric-card,
+.team-member {
+  box-shadow: var(--panel-shadow);
 }
