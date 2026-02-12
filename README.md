@@ -1,4 +1,4 @@
-# Skill Forge
+# Forge
 
 Self-optimizing skill system for OpenClaw agents. Tracks performance, detects inefficiencies, and auto-generates improved versions.
 
@@ -6,7 +6,7 @@ Self-optimizing skill system for OpenClaw agents. Tracks performance, detects in
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     SKILL FORGE v0.1                         │
+│                     FORGE v0.1                         │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐              │
 │  │ PROFILER │───▶│ ANALYZER │───▶│ OPTIMIZER│              │
@@ -32,8 +32,8 @@ Self-optimizing skill system for OpenClaw agents. Tracks performance, detects in
 
 ```bash
 # 1. Clone and setup
-git clone <repo-url>
-cd skill-forge
+git clone https://github.com/minicarlo/forge.git
+cd forge
 npm install
 
 # 2. Run profiler (captures metrics)

@@ -1,5 +1,5 @@
 {
-  "name": "skill-forge",
+  "name": "forge",
   "version": "0.1.0",
   "description": "Self-optimizing skill system for OpenClaw agents",
   "main": "dist/index.js",
