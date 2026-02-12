@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-animation"></div>
+  <div class="dashboard">
+    <header class="dashboard-header">
+      <div>
+        <p class="pretitle">Forge Control Panel</p>
+        <h1>Live Optimization Status</h1>
+      </div>
+      <div class="header-actions">
+        <span class="status-pill status-active">Active</span>
+        <span class="status-pill status-warm">Watching 3 skills</span>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">Dark mode</button>
+      </div>
+    </header>
+
+    <section class="dashboard-grid">
+      <article class="panel panel-metrics">
+        <h2>Real-time metrics</h2>
+        <div class="metric-cards">
+          <div class="metric-card">
+            <p>Skills Served</p>
+            <span id="metric-skills">8</span>
+          </div>
+          <div class="metric-card">
+            <p>Tokens Saved</p>
+            <span id="metric-tokens">34%</span>
+          </div>
+          <div class="metric-card">
+            <p>Avg. Runtime</p>
+            <span id="metric-runtime">1.8s</span>
+          </div>
+          <div class="metric-card">
+            <p>LLM Calls</p>
+            <span id="metric-llm">72</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel panel-control">
+        <h2>Control center</h2>
+        <div class="control-center">
+          <div>
+            <p class="control-label">Tested skills</p>
+            <p class="control-value">19</p>
+            <p class="control-note">Last 2 hrs</p>
+          </div>
+          <div>
+            <p class="control-label">Successful promotes</p>
+            <p class="control-value">7</p>
+            <p class="control-note">0 rollbacks</p>
+          </div>
+          <div>
+            <p class="control-label">Average confidence</p>
+            <p class="control-value">95%</p>
+            <p class="control-note">Validation overlap</p>
+          </div>
+          <div>
+            <p class="control-label">Resources</p>
+            <p class="control-value">3</p>
+            <p class="control-note">LLM models in rotation</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel panel-breakdown">
+        <h2>Per skill view</h2>
+        <div class="skill-row">
+          <div>
+            <p class="skill-name">time-tracker</p>
+            <p class="skill-meta">Tokens 2.1k → 1.5k | Runtime 3.4s → 2.1s</p>
+          </div>
+          <div class="skill-status success">Validated</div>
+        </div>
+        <div class="skill-row">
+          <div>
+            <p class="skill-name">docs-generator</p>
+            <p class="skill-meta">Tokens 1.8k → optimizing… | Runtime 2.7s</p>
+          </div>
+          <div class="skill-status pending">Optimizing</div>
+        </div>
+        <div class="skill-row">
+          <div>
+            <p class="skill-name">solana-research</p>
+            <p class="skill-meta">Tokens 3.3k → 2.4k | Runtime 4.5s → 3.1s</p>
+          </div>
+          <div class="skill-status success">Promoted</div>
+        </div>
+      </article>
+
+      <article class="panel panel-console">
+        <h2>System console</h2>
+        <div class="console">
+          <p><span class="console-time">18:32:01</span> Profiler logged 42 executions.</p>
+          <p><span class="console-time">18:32:09</span> Analyzer queue: time-tracker, docs-generator.</p>
+          <p><span class="console-time">18:32:14</span> Optimizer prompt length 2.3k tokens.</p>
+          <p><span class="console-time">18:32:18</span> Validator comparing outputs for docs-generator.</p>
+          <p><span class="console-time">18:32:21</span> Promotion recorded for solana-research.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="dashboard-footer">
+      <p>Dashboards auto-refresh every 5s. Compare original vs optimized to monitor confidence.</p>
+      <a href="index.html" class="btn btn-secondary">Back to Landing Page</a>
+    </footer>
+  </div>
+
+  <script>
+    // pulse metrics
+    const metrics = [
+      { el: 'metric-skills', target: 12 },
+      { el: 'metric-tokens', target: 42, suffix: '%' },
+      { el: 'metric-runtime', target: 1.8, suffix: 's' },
+      { el: 'metric-llm', target: 88 }
+    ];
+
+    metrics.forEach(({ el, target, suffix = '' }) => {
+      const node = document.getElementById(el);
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        node.textContent = (suffix === 's' ? current.toFixed(1) : Math.floor(current)) + suffix;
+      }, 40);
+    });
+  </script>
+    <script src="theme.js"></script>
+</body>
+</html>
