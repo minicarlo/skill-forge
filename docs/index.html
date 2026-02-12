@@ -24,25 +24,27 @@
           <a class="btn" href="dashboard.html">Launch control center</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="orb"></div>
-        <div class="orb"></div>
-      </div>
-      <div class="pixel-hero" aria-hidden="true">
-        <div class="pixel-row">
-          <span></span><span></span><span></span><span></span><span></span>
+      <div class="visual-stack">
+        <div class="hero-visual">
+          <div class="orb"></div>
+          <div class="orb"></div>
         </div>
-        <div class="pixel-row">
-          <span></span><span class="color-a"></span><span class="color-a"></span><span class="color-a"></span><span></span>
-        </div>
-        <div class="pixel-row">
-          <span class="color-c"></span><span class="color-a"></span><span class="color-b"></span><span class="color-a"></span><span class="color-c"></span>
-        </div>
-        <div class="pixel-row">
-          <span></span><span class="color-b"></span><span class="color-b"></span><span class="color-b"></span><span></span>
-        </div>
-        <div class="pixel-row">
-          <span class="color-b"></span><span class="color-d"></span><span class="color-d"></span><span class="color-d"></span><span class="color-b"></span>
+        <div class="pixel-hero" aria-hidden="true">
+          <div class="pixel-row">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="pixel-row">
+            <span></span><span class="color-a"></span><span class="color-a"></span><span class="color-a"></span><span></span>
+          </div>
+          <div class="pixel-row">
+            <span class="color-c"></span><span class="color-a"></span><span class="color-b"></span><span class="color-a"></span><span class="color-c"></span>
+          </div>
+          <div class="pixel-row">
+            <span></span><span class="color-b"></span><span class="color-b"></span><span class="color-b"></span><span></span>
+          </div>
+          <div class="pixel-row">
+            <span class="color-b"></span><span class="color-d"></span><span class="color-d"></span><span class="color-d"></span><span class="color-b"></span>
+          </div>
         </div>
       </div>
     </header>
@@ -51,6 +53,7 @@
       <section class="summary" id="summary">
         <h2>Summary</h2>
         <div class="summary-grid" id="summary-grid"></div>
+        <div class="control-center" id="control-panel"></div>
       </section>
 
       <section class="skills" id="skills-section">
@@ -131,6 +134,26 @@
       el.innerHTML = `<p>${entry.label}</p><strong>${entry.value}</strong>`;
       summaryGrid.appendChild(el);
     });
+
+    const controlPanel = document.getElementById('control-panel');
+    controlPanel.innerHTML = `
+      <div class="control-box">
+        <p class="control-label">totalSkills</p>
+        <strong>${summary.totalSkills}</strong>
+      </div>
+      <div class="control-box">
+        <p class="control-label">optimal</p>
+        <strong>${summary.optimalCount}</strong>
+      </div>
+      <div class="control-box">
+        <p class="control-label">needsWork</p>
+        <strong>${summary.needsWorkCount}</strong>
+      </div>
+      <div class="control-box">
+        <p class="control-label">scopesScanned</p>
+        <strong>${summary.scopesScanned.join(', ')}</strong>
+      </div>
+    `;
 
     const scopesTags = document.getElementById('scopes-tags');
     summary.scopesScanned.forEach(scope => {
